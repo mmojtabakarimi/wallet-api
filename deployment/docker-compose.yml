@@ -1,0 +1,57 @@
+version: '3.2'
+
+services:
+  wallet_app:
+    build:
+      context: ../
+      dockerfile: deployment/app.Dockerfile
+    working_dir: /var/www
+    depends_on:
+      - wallet_database
+    command: sh deployment/app.sh
+    volumes:
+      - ../:/var/www
+    environment:
+      APP_ENV: local
+      COMPOSER_ALLOW_SUPERUSER: 1
+    networks:
+      - default
+      - wallet-net
+
+  wallet_web:
+   build:
+     context: ../
+     dockerfile: deployment/web.Dockerfile
+   working_dir: /var/www
+   depends_on:
+     - wallet_app
+   volumes:
+    - ../:/var/www
+   ports:
+    - 6080:80
+   networks:
+    - default
+    - wallet-net
+
+  wallet_database:
+    build:
+      context: ../
+      dockerfile: deployment/database.Dockerfile
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=homestead"
+      - "MYSQL_USER=homestead"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+    ports:
+      - 33077:3306
+    networks:
+      - default
+
+volumes:
+  dbdata:
+
+networks:
+  wallet-net:
+    external: true
