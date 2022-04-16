@@ -13,7 +13,7 @@ class WalletApiTest extends TestCase
      *
      * @return void
      */
-    use  refreshDatabase;
+    use  RefreshDatabase;
 
 
     public function testGetBalance()
