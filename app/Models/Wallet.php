@@ -11,4 +11,15 @@ class Wallet extends Model
 
     protected $table = 'wallets';
 
+    public $timestamps = false;
+
+    protected $fillable = [
+        'created_at',
+        'user_id',
+        'amount',
+        'reference_id',
+    ];
+
+
+
 }

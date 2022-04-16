@@ -15,7 +15,7 @@ class CreateWalletsTable extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('created_at');
             $table->integer('user_id');
             $table->integer('amount');
             $table->integer('reference_id');

@@ -20,5 +20,7 @@ use App\Http\Controllers\WalletController;
 Route::group(['prefix' => 'v1'], function () {
     Route::get('/balance', [WalletController::class, 'getAll']);
     Route::get('/balance/{user_id}', [WalletController::class, 'getTotalBalanceByUserId']);
+    Route::post('/balance/{user_id}', [WalletController::class, 'addBalance']);
 
+    Route::get('/getdailybalance', [WalletController::class, 'getDailyBalance']);
 });
