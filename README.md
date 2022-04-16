@@ -33,4 +33,17 @@ with amount as  parameter
  /api/v1/getdailybalance
 5)php artisan calculate:dailyAmount #get all amount per day
 
+###
+deployment
+this deployment consist of  3  micoservice 
+1)NGINX
+2)MYSQL
+3)Laravel  app
+## deployment
+1) clone the latest version from repository
+2) sudo  docker network create wallet-net
+3) sudo  docker-compose  -f deployment/docker-compose.yml  -p wallet  up --build
+
+
+
 
