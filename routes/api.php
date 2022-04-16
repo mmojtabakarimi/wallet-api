@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WalletController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::get('/balance', [WalletController::class, 'getAll']);
+    Route::get('/balance/{user_id}', [WalletController::class, 'getTotalBalanceByUserId']);
+    Route::post('/balance/{user_id}', [WalletController::class, 'addBalance']);
+
+    Route::get('/getdailybalance', [WalletController::class, 'getDailyBalance']);
+
 });
