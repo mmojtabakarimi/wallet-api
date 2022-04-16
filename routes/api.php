@@ -23,4 +23,5 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/balance/{user_id}', [WalletController::class, 'addBalance']);
 
     Route::get('/getdailybalance', [WalletController::class, 'getDailyBalance']);
+
 });

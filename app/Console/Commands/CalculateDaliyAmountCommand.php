@@ -39,7 +39,7 @@ class CalculateDaliyAmountCommand extends Command
      */
     public function handle(WalletService $walletService)
     {
-        dump($walletService->calculateDailyTransaction(Carbon::yesterday()));
+        dump($walletService->calculateDailyTransaction(Carbon::now()));
 
         return 0;
     }

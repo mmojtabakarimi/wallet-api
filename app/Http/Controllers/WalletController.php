@@ -38,7 +38,7 @@ class WalletController extends Controller
 
     }
 
-    public function gettotalBalanceByUserId($id): JsonResponse
+    public function getTotalBalanceByUserId($id): JsonResponse
     {
 
        return response()->json(['amount is ' => Wallet::where('user_id', $id)->sum('amount')]);

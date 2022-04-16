@@ -35,7 +35,7 @@ class CalculateTotalAmountDaily implements ShouldQueue
      */
     public function handle(WalletService $walletService)
     {
-        dump($walletService->calculateDailyTransaction(Carbon::yesterday()));
+        dump($walletService->calculateDailyTransaction(Carbon::now));
     }
 
 }
