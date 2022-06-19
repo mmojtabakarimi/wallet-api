@@ -42,10 +42,7 @@ this deployment consist of  3  micoservice
 ## deployment
 1) clone the latest version from repository
 2) sudo  docker network create wallet-net
-3) sudo  docker-compose  -f deployment/docker-compose.yml  -p wallet  up --build
+3) sudo  docker-compose -f deployment/docker-compose.yml  -p wallet  up --build
 4) all the  api will be accessible via  http://ip_addr:6080/api/v1/
-
-
-
 
 
